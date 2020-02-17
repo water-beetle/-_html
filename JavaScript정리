@@ -1,0 +1,17 @@
+#JavaScript
+
+**Script**
+
+JavaScript를 사용하려면 <script> 내용 </script>을 사용해 스크립트를 입력할 수 있다
+
+----------------------------------------------------------
+
+**이벤트**
+
+ex) <input type="button" value="hi" onclick="alert(hi)">에서  
+onclick이 이벤트에 해당한다
+
+----------------------------------
+
+
+
