@@ -40,21 +40,6 @@ form.addEventListener('submit', function callback(e){
             rand_num.push(pop_num);
             }
     }
-    else {
-        var strike = 0;
-        var answer_split = answer.split('');
-        var ball = 0;
-        for(var i = 0; i<4; i+=1) {
-            if(answer_split[i] == rand_num[i])
-                strike +=1;
-            else if(rand_num.indexOf(Number(answer_split[i])) >-1) {
-                ball += 1;
-                }
-            }
-        result.textContent = "Strike : " + strike + " Ball : " + ball;
-        }
-    
-   
 
 
 
