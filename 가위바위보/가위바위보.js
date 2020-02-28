@@ -1,4 +1,6 @@
 document.querySelector('#computer').style.background = 'url(https://en.pimg.jp/023/182/267/1/23182267.jpg) 0 0';
+output = document.querySelector('#result');
+reset = document.querySelector('#reset');
 
 var three_value = {
 	바위 : '0',
@@ -18,22 +20,67 @@ function computer_choose(computer) {
 }
 
 var computer = 0;
-setInterval(function() {
-	if( computer == three_value.바위) {
-		computer = three_value.가위;
-	} else if (computer == three_value.가위) {
-		computer = three_value.보;
-	} else {
-		computer = three_value.바위
-	}
-	document.querySelector('#computer').style.background = 'url(https://en.pimg.jp/023/182/267/1/23182267.jpg)' + computer + ' 0';
-}, 100);
+var interval;
+function intervalmaker() {
+	interval = 	setInterval(function() {
+			if( computer == three_value.바위) {
+				computer = three_value.가위;
+			} else if (computer == three_value.가위) {
+				computer = three_value.보;
+			} else {
+				computer = three_value.바위
+			}
+	document.querySelector('#computer').style.background = 'url(https://en.pimg.jp/023/182/267/1/23182267.jpg)' + computer + ' 0'}, 100);
+}
+intervalmaker();
+
+var score = {
+	가위 : 1,
+	바위 : 0,
+	보 : -1
+};
 
 //버튼을 클릭할때
 document.querySelectorAll('.btn').forEach(function(btn){ //forEach
 	btn.addEventListener('click', function(){ //.rock은 class 탐색
-console.log(this.textContent, computer_choose(computer));
-	});
+		clearInterval(interval);
+		
+		var my_choose = this.textContent;
+		var final_score = score[my_choose] -score[computer_choose(computer)];
+		console.log(my_choose, computer_choose(computer));
+		if( final_score== 0) {
+			output.textContent = "비겼습니다";
+		} else if([-1,2].includes(final_score)) {
+			output.textContent = "이겼습니다";
+		} else {
+			output.textContent = "졌습니다";
+		}
+		});
 });	
+
+reset.addEventListener('click', function(){
+	intervalmaker();
+	output.textContent = '';
+})
+
+
+
+//가위 -1 바위 0 보 1
+//		가위		바위	보  *나*
+//가위	-1-1	-10	-11
+
+//바위	0-1		00	01
+
+//보		1-1		10	11
+
+//*컴퓨터*
+
+
+
+
+
+
+
+
 
 
