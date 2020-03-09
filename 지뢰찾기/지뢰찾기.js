@@ -140,10 +140,10 @@ document.querySelector('#exec').addEventListener('click', function(){ //실행�
 	console.log(shuffle_mine_array);
 	
 	for(var i=0; i<mine_num; i+=1){
-		var mine_x_pos = Math.floor(shuffle_mine_array[i]/10);
-		var mine_y_pos = ((shuffle_mine_array[i])%10);
+		var mine_x_pos = Math.floor(shuffle_mine_array[i]/row_num);
+		var mine_y_pos = ((shuffle_mine_array[i])%row_num);
 		
-		tbody.children[mine_x_pos].children[mine_y_pos].textContent = 'X';
+		
 		dataset[mine_x_pos][mine_y_pos] = 'X';
 		console.log(mine_x_pos, mine_y_pos);
 	
