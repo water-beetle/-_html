@@ -37,7 +37,7 @@ document.querySelector('#exec').addEventListener('click', function(){ //실행�
 				} else if(e.currentTarget.textContent == '!') {
 					e.currentTarget.textContent = "?";	
 				} else if(e.currentTarget.textContent == '?') {
-					if(dataset[target_column][target_row] == '0') {
+					if(dataset[target_column][target_row] == '') {
 						e.currentTarget.textContent = "";
 					} else if(dataset[target_column][target_row] == 'X'){
 						e.currentTarget.textContent = "X";
